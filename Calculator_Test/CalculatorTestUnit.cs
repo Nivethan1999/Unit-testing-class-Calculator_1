@@ -1,4 +1,4 @@
-using CalcultorClass;
+using CalculatorClass;
 
 namespace Calculator_Test
 {
@@ -28,6 +28,14 @@ namespace Calculator_Test
             var uut = new Calculator();
             Assert.That(uut.Subtract(10,5),Is.EqualTo(5));
         }
+        
+        [Test]
+        public void DivideTestOverloaded()
+        {
+            var uut = new Calculator();
+            uut.Multiply(10, 1);
+            Assert.That(uut.Divide(5),Is.EqualTo(2));
+        }
 
         [Test]
         public void MultiplyTest()
@@ -35,12 +43,30 @@ namespace Calculator_Test
             var uut = new Calculator();
             Assert.That(uut.Multiply(10, 5), Is.EqualTo(50));
         }
+        
+        [Test]
+        public void MultiplyTestOverloaded()
+        {
+            var uut = new Calculator();
+            uut.Add(0, 5);
+            Assert.That(uut.Multiply(10), Is.EqualTo(50));
+        }
 
         [Test]
         public void PowTest()
         {
             var uut = new Calculator();
             Assert.That(uut.Power(2, 2), Is.EqualTo(4));
+        }
+        
+        [Test] 
+        public void PowTestOverloaded()
+        {
+            var uut = new Calculator();
+            uut.Power(2, 2);
+            
+            //4^2 = 16
+            Assert.That(uut.Power(2), Is.EqualTo(16));
         }
 
         [Test]

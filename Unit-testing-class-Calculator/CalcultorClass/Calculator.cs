@@ -22,28 +22,9 @@
         //Multiplication
         public double Multiply(double a, double b)
         {
-            Accumulator = a * b;
-            return Accumulator;
+            return a * b;
         }
-        
-        public double Multiply(double a)
-        {
-            Accumulator = a * Accumulator;
-            return Accumulator;
-        }
-        
-        //Division
-        public double Divide(double a)
-        {
-            if (a == 0)
-            {
-                throw new DivideByZeroException();
-            }
-            Accumulator = Accumulator / a;
-            return Accumulator;
-        }
- 
-        //Powers
+
         public double Power(double x, double exp)
         {
             Accumulator =  Math.Pow(x, exp);

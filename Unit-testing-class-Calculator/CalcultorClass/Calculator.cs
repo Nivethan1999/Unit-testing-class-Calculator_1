@@ -22,7 +22,8 @@
         //Multiplication
         public double Multiply(double a, double b)
         {
-            return a * b;
+            Accumulator = a * b;
+            return Accumulator;
         }
 
         public double Power(double x, double exp)
@@ -43,7 +44,7 @@
 
         public double Add(double addend)
         {
-            Accumulator = addend + Accumulator;
+            Accumulator = Accumulator + addend;
             return Accumulator;
 
 
@@ -51,7 +52,7 @@
 
         public double Subtract(double subtractor)
         {
-            Accumulator = subtractor - Accumulator;
+            Accumulator = Accumulator - subtractor;
             return Accumulator;
         }
 

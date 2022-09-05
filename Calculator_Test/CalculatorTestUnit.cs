@@ -1,4 +1,5 @@
-using CalcultorClass;
+using CalculatorClass;
+//using CalcultorClass;
 
 namespace Calculator_Test
 {
@@ -55,8 +56,8 @@ namespace Calculator_Test
         public void MinusOverloadTest()
         {
             var uut = new Calculator();
-            uut.Multiply(5, 1);
-            Assert.That(uut.Subtract(10), Is.EqualTo(5));
+            uut.Multiply(10, 1);
+            Assert.That(uut.Subtract(10), Is.EqualTo(0));
         }
 
     }

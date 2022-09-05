@@ -1,5 +1,4 @@
 using CalculatorClass;
-//using CalcultorClass;
 
 namespace Calculator_Test
 {
@@ -15,26 +14,55 @@ namespace Calculator_Test
         [TestCase(10, 10, 20)]
         [TestCase(50, 50, 100)]
         [TestCase(100, 50, 150)]
-
+        
+        
+        //Addition Test
+        [Test]
         public void AddTest(double p1, double p2, double expected)
         {
             var uut = new Calculator();
             Assert.That(uut.Add(p1, p2), Is.EqualTo(expected));
 
         }
-
+        [Test]
+        public void AddOverloadTest()
+        {
+            var uut = new Calculator();
+            uut.Multiply(5, 1);
+            Assert.That(uut.Add(10), Is.EqualTo(15));
+        }
+        
+        //Subtraction Test
         [Test]
         public void MinusTest()
         {
             var uut = new Calculator();
             Assert.That(uut.Subtract(10,5),Is.EqualTo(5));
         }
-
+        
+        [Test]
+        public void MinusOverloadTest()
+        {
+            var uut = new Calculator();
+            uut.Multiply(5, 1);
+            Assert.That(uut.Subtract(10), Is.EqualTo(-5));
+        }
+    
+        
+        //Multiplication Test
         [Test]
         public void MultiplyTest()
         {
             var uut = new Calculator();
             Assert.That(uut.Multiply(10, 5), Is.EqualTo(50));
+        }
+        
+        [Test]
+        public void MultiplyOverloadTest()
+        {
+            var uut = new Calculator();
+            uut.Multiply(5, 1);
+            Assert.That(uut.Multiply(10), Is.EqualTo(50));
         }
 
         [Test]
@@ -43,22 +71,52 @@ namespace Calculator_Test
             var uut = new Calculator();
             Assert.That(uut.Power(2, 2), Is.EqualTo(4));
         }
-
+        
         [Test]
-        public void AddOverloadTest()
+        public void PowOverloadTest()
         {
             var uut = new Calculator();
             uut.Multiply(5, 1);
-            Assert.That(uut.Add(10), Is.EqualTo(15));
+            Assert.That(uut.Power(2), Is.EqualTo(25));
         }
-
+        
         [Test]
-        public void MinusOverloadTest()
+        public void DivideTest()
+        {
+            var uut = new Calculator();
+            Assert.That(uut.Divide(10, 5), Is.EqualTo(2));
+        }
+        
+        [Test]
+        public void DivideOverloadTest()
         {
             var uut = new Calculator();
             uut.Multiply(10, 1);
-            Assert.That(uut.Subtract(10), Is.EqualTo(0));
+            Assert.That(uut.Divide(5), Is.EqualTo(2));
         }
+        
+        [Test]
+        public void AccumulatorTest()
+        {
+            var uut = new Calculator();
+            uut.Add(10, 5);
+            Assert.That(uut.Accumulator, Is.EqualTo(15));
+        }
+        
+        [Test]
+        public void ClearTest()
+        {
+            var uut = new Calculator();
+            uut.Add(10, 5);
+            uut.Clear();
+            Assert.That(uut.Accumulator, Is.EqualTo(0));
+        }
+
+
+
+
+
+
 
     }
 }

@@ -2,64 +2,79 @@
 {
     public class Calculator
     {
-        //Variables
-        public double Accumulator { get; private set; }
+        public double Accumulator { get; set; }
         
-        //Addition
         public double Add(double a, double b)
         {
             Accumulator = a + b;
             return Accumulator;
         }
+
+        public double Add(double a)
+        {
+            Accumulator = Accumulator + a;
+            return Accumulator;
+        }
         
-        //Subtraction
         public double Subtract(double a, double b)
         {
             Accumulator = a - b;
             return Accumulator;
         }
+        public double Subtract(double a)
+        {
+            Accumulator = Accumulator - a;
+            return Accumulator;
+        }
         
-        //Multiplication
+        
         public double Multiply(double a, double b)
         {
             Accumulator = a * b;
             return Accumulator;
         }
-
-        public double Power(double x, double exp)
+        
+        public double Multiply(double a)
         {
-            Accumulator =  Math.Pow(x, exp);
+            Accumulator = Accumulator * a;
             return Accumulator;
-            
         }
         
-        public double Power(double exp)
+        public double Power(double x, double exp)
+        {
+            Accumulator = Math.Pow(x, exp);
+            return Accumulator;
+        }
+        
+        public  double Power(double exp)
         {
             Accumulator = Math.Pow(Accumulator, exp);
             return Accumulator;
         }
-        
-        
-        
-
-        public double Add(double addend)
+        public double Divide(double dividend, double divisor)
         {
-            Accumulator = Accumulator + addend;
-            return Accumulator;
-
-
-        }
-
-        public double Subtract(double subtractor)
-        {
-            Accumulator = Accumulator - subtractor;
+            if (divisor == 0)
+            {
+                throw new DivideByZeroException();
+            }
+            Accumulator = dividend / divisor;
             return Accumulator;
         }
+        
+        public double Divide(double divisor)
+        {
+            if (divisor == 0)
+            {
+                throw new DivideByZeroException();
+            }
+            Accumulator = Accumulator / divisor;
+            return Accumulator;
+        }
 
-
-       
-
-
+        public void Clear()
+        {
+            Accumulator = 0;
+        }
 
     }
 }

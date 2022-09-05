@@ -1,56 +1,80 @@
-﻿namespace CalcultorClass
+﻿namespace CalculatorClass
 {
     public class Calculator
     {
+        public double Accumulator { get; set; }
+        
         public double Add(double a, double b)
         {
             Accumulator = a + b;
             return Accumulator;
         }
 
+        public double Add(double a)
+        {
+            Accumulator = Accumulator + a;
+            return Accumulator;
+        }
+        
         public double Subtract(double a, double b)
         {
             Accumulator = a - b;
             return Accumulator;
         }
-
+        public double Subtract(double a)
+        {
+            Accumulator = Accumulator - a;
+            return Accumulator;
+        }
+        
+        
         public double Multiply(double a, double b)
         {
             Accumulator = a * b;
             return Accumulator;
         }
-
+        
+        public double Multiply(double a)
+        {
+            Accumulator = Accumulator * a;
+            return Accumulator;
+        }
+        
         public double Power(double x, double exp)
         {
-            Accumulator =  Math.Pow(x, exp);
+            Accumulator = Math.Pow(x, exp);
             return Accumulator;
-            
         }
-
-        public double Add(double addend)
+        
+        public  double Power(double exp)
         {
-            Accumulator = addend + Accumulator;
+            Accumulator = Math.Pow(Accumulator, exp);
             return Accumulator;
-
-
         }
-
-        public double Subtract(double subtractor)
+        public double Divide(double dividend, double divisor)
         {
-            Accumulator = subtractor - Accumulator;
+            if (divisor == 0)
+            {
+                throw new DivideByZeroException();
+            }
+            Accumulator = dividend / divisor;
             return Accumulator;
         }
-
-        public double Multiply(double multiplier)
+        
+        public double Divide(double divisor)
         {
-            Accumulator = multiplier * Accumulator;
+            if (divisor == 0)
+            {
+                throw new DivideByZeroException();
+            }
+            Accumulator = Accumulator / divisor;
             return Accumulator;
-
         }
 
-        public double Accumulator { get; private set; }
-
-
+        public void Clear()
+        {
+            Accumulator = 0;
+        }
 
     }
 }

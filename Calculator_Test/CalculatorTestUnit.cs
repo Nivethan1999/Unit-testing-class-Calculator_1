@@ -43,5 +43,21 @@ namespace Calculator_Test
             Assert.That(uut.Power(2, 2), Is.EqualTo(4));
         }
 
+        [Test]
+        public void AddOverloadTest()
+        {
+            var uut = new Calculator();
+            uut.Multiply(5, 1);
+            Assert.That(uut.Add(10), Is.EqualTo(15));
+        }
+
+        [Test]
+        public void MinusOverloadTest()
+        {
+            var uut = new Calculator();
+            uut.Multiply(5, 1);
+            Assert.That(uut.Subtract(10), Is.EqualTo(5));
+        }
+
     }
 }

@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Unit-testing-class-Calculator\CalcultorClass\CalcultorClass.csproj" />
+    <ProjectReference Include="..\Unit-testing-class-Calculator\CalcultorClass\CalculatorClass.csproj" />
   </ItemGroup>
 
 </Project>

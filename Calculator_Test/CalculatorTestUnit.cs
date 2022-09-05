@@ -1,4 +1,4 @@
-using CalcultorClass;
+using CalculatorClass;
 
 namespace Calculator_Test
 {

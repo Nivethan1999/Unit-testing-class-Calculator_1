@@ -74,14 +74,8 @@
             return Accumulator;
         }
 
-        public double Multiply(double multiplier)
-        {
-            Accumulator = multiplier * Accumulator;
-            return Accumulator;
 
-        }
-
-        public double Accumulator { get; private set; }
+       
 
 
 

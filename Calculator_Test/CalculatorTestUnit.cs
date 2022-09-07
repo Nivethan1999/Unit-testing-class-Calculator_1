@@ -14,6 +14,7 @@ namespace Calculator_Test
         [TestCase(10, 10, 20)]
         [TestCase(50, 50, 100)]
         [TestCase(100, 50, 150)]
+        [TestCase(150,150,300)]
         
         
         //Addition Test

@@ -76,5 +76,14 @@
             Accumulator = 0;
         }
 
+        public double Sqrt(double a)
+        {
+            return Math.Sqrt(a);
+            
+        }
+
+       
+
+
     }
 }

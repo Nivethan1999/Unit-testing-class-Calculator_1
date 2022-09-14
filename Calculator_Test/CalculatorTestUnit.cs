@@ -26,13 +26,17 @@ namespace Calculator_Test
             Assert.That(uut.Add(p1, p2), Is.EqualTo(expected));
 
         }
-        [Test]
-        public void AddOverloadTest()
+        [TestCase(2, 12)]
+        [TestCase(10, 20)]
+        [TestCase(100, 110)]
+        public void AddOverloadTest(double p1,double expected)
         {
             var uut = new Calculator();
-            uut.Multiply(5, 1);
-            Assert.That(uut.Add(10), Is.EqualTo(15));
+            uut.Add(5, 5);
+            Assert.That(uut.Add(p1), Is.EqualTo(expected));
+
         }
+        
 
         //Subtraction Test
         [TestCase(50, 50, 0)]
@@ -44,12 +48,14 @@ namespace Calculator_Test
             Assert.That(uut.Subtract(p1, p2), Is.EqualTo(expected));
         }
         
-        [Test]
-        public void MinusOverloadTest()
+        [TestCase( 5, 0)]
+        [TestCase(10, -5)]
+        [TestCase(2, 3)]
+        public void MinusOverloadTest(double p1, double expected)
         {
             var uut = new Calculator();
             uut.Multiply(5, 1);
-            Assert.That(uut.Subtract(10), Is.EqualTo(-5));
+            Assert.That(uut.Subtract(p1), Is.EqualTo(expected));
         }
 
 
@@ -63,12 +69,14 @@ namespace Calculator_Test
             Assert.That(uut.Multiply(p1, p2), Is.EqualTo(expected));
         }
         
-        [Test]
-        public void MultiplyOverloadTest()
+        [TestCase( 5, 25)]
+        [TestCase(10, 50)]
+        [TestCase(2, 10)]
+        public void MultiplyOverloadTest(double p1, double expected)
         {
             var uut = new Calculator();
             uut.Multiply(5, 1);
-            Assert.That(uut.Multiply(10), Is.EqualTo(50));
+            Assert.That(uut.Multiply(p1), Is.EqualTo(expected));
         }
 
         [TestCase(5, 5, 3125)]
@@ -81,12 +89,14 @@ namespace Calculator_Test
 
         }
         
-        [Test]
-        public void PowOverloadTest()
+        [TestCase(0, 1)]
+        [TestCase(1, 5)]
+        [TestCase(2, 25)]
+        public void PowOverloadTest(double power, double expected)
         {
             var uut = new Calculator();
             uut.Multiply(5, 1);
-            Assert.That(uut.Power(2), Is.EqualTo(25));
+            Assert.That(uut.Power(power), Is.EqualTo(expected));
         }
 
         [TestCase(5, 5, 1)]
@@ -98,29 +108,35 @@ namespace Calculator_Test
             Assert.That(uut.Divide(p1, p2), Is.EqualTo(expected));
         }
         
-        [Test]
-        public void DivideOverloadTest()
+        [TestCase(10,1)]
+        [TestCase(5,2)]
+        [TestCase(2,5)]
+        public void DivideOverloadTest(double p1, double expected)
         {
             var uut = new Calculator();
             uut.Multiply(10, 1);
-            Assert.That(uut.Divide(5), Is.EqualTo(2));
+            Assert.That(uut.Divide(p1), Is.EqualTo(expected));
         }
         
-        [Test]
-        public void AccumulatorTest()
+        [TestCase(2, 5, 7)]
+        [TestCase(10, 20, 30)]
+        [TestCase(10, 10, 20)]
+        public void AccumulatorAddTest(double p1,double p2, double expected)
         {
             var uut = new Calculator();
-            uut.Add(10, 5);
-            Assert.That(uut.Accumulator, Is.EqualTo(15));
+            uut.Add(p1, p2);
+            Assert.That(uut.Accumulator, Is.EqualTo(expected));
         }
         
-        [Test]
-        public void ClearTest()
+        [TestCase(2, 5, 0)]
+        [TestCase(10, 20, 0)]
+        [TestCase(10, 10, 0)]
+        public void ClearTest(double p1,double p2, double expected)
         {
             var uut = new Calculator();
-            uut.Add(10, 5);
+            uut.Add(p1, p2);
             uut.Clear();
-            Assert.That(uut.Accumulator, Is.EqualTo(0));
+            Assert.That(uut.Accumulator, Is.EqualTo(expected));
         }
 
         [TestCase(36, 6 )]

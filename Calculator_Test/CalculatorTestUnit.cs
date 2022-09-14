@@ -32,7 +32,7 @@ namespace Calculator_Test
         public void AddOverloadTest(double p1,double expected)
         {
             var uut = new Calculator();
-            uut.Add(5, 5);
+            uut.Add(5, 5);//initializing the accumulator
             Assert.That(uut.Add(p1), Is.EqualTo(expected));
 
         }
@@ -54,7 +54,7 @@ namespace Calculator_Test
         public void MinusOverloadTest(double p1, double expected)
         {
             var uut = new Calculator();
-            uut.Multiply(5, 1);
+            uut.Multiply(5, 1);//initializing the accumulator
             Assert.That(uut.Subtract(p1), Is.EqualTo(expected));
         }
 
@@ -75,7 +75,7 @@ namespace Calculator_Test
         public void MultiplyOverloadTest(double p1, double expected)
         {
             var uut = new Calculator();
-            uut.Multiply(5, 1);
+            uut.Multiply(5, 1);//initializing the accumulator
             Assert.That(uut.Multiply(p1), Is.EqualTo(expected));
         }
 
@@ -95,18 +95,27 @@ namespace Calculator_Test
         public void PowOverloadTest(double power, double expected)
         {
             var uut = new Calculator();
-            uut.Multiply(5, 1);
+            uut.Multiply(5, 1);//initializing the accumulator
             Assert.That(uut.Power(power), Is.EqualTo(expected));
         }
 
         [TestCase(5, 5, 1)]
         [TestCase(10, 5, 2)]
         [TestCase(5, 2, 2.5)]
+        
         public void DivideTest(double p1, double p2, double expected)
         {
             var uut = new Calculator();
             Assert.That(uut.Divide(p1, p2), Is.EqualTo(expected));
         }
+        
+        [Test]
+        public void DivideTestException()
+        {
+            var uut = new Calculator();
+            Assert.Throws<DivideByZeroException>(() => uut.Divide(10, 0));
+        }
+        
         
         [TestCase(10,1)]
         [TestCase(5,2)]
@@ -114,8 +123,16 @@ namespace Calculator_Test
         public void DivideOverloadTest(double p1, double expected)
         {
             var uut = new Calculator();
-            uut.Multiply(10, 1);
+            uut.Multiply(10, 1);//initializing the accumulator
             Assert.That(uut.Divide(p1), Is.EqualTo(expected));
+        }
+        
+        [Test]
+        public void DivideOverloadTestException()
+        {
+            var uut = new Calculator();
+            uut.Multiply(10, 1); //initializing the accumulator
+            Assert.Throws<DivideByZeroException>(() => uut.Divide(0));
         }
         
         [TestCase(2, 5, 7)]
@@ -134,7 +151,7 @@ namespace Calculator_Test
         public void ClearTest(double p1,double p2, double expected)
         {
             var uut = new Calculator();
-            uut.Add(p1, p2);
+            uut.Add(p1, p2);//initializing the accumulator
             uut.Clear();
             Assert.That(uut.Accumulator, Is.EqualTo(expected));
         }
